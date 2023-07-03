@@ -48,11 +48,9 @@ driver = webdriver.Firefox()
 def get_cutouts(file_path, radius):
     driver.get('http://cutouts.cirada.ca/')
     upload = WebDriverWait(driver, 10).until(
-        EC.element_to_be_clickable((By.CSS_SELECTOR, 'input[type="file"]'))
+        EC.element_to_be_clickable((By.ID, 'id_batch_locations'))
     )
-    #upload = driver.find_element(By.ID, "id_batch_locations")
     upload.send_keys(file_path)
-    #upload.submit()
     checkbox = driver.find_element(By.ID, 'id_surveys_0')
     checkbox.click()
     checkbox = driver.find_element(By.ID, 'id_surveys_3') #FIRST
